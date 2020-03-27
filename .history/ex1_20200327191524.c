@@ -31,7 +31,7 @@ void wait(custom_lock* lock) {
     //modify here
 
     sem_wait(&lock->mutex);
-    printf("%d\n",lock->current);
+    printf("%d\n"lock->current);
     sem_wait(&lock->array[lock->current++]);
 
 }
@@ -50,7 +50,6 @@ void notify_all(custom_lock* lock) {
         // sem_wait(&lock->write_lock);
     }for (i = lock->max_threads-1; i >= 0; i--) {
         // sem_wait(&lock->array[i]);
-            printf("%d1221\n",i);
         sem_post(&lock->array[i]);
         sem_wait(&lock->write_lock);
         //wait for this value to be written before moving on
