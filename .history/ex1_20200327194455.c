@@ -73,8 +73,6 @@ void cleanup(custom_lock* lock) {
 
     sem_destroy(&lock->mutex);
     sem_destroy(&lock->write_lock);
-    int i;
-    for(i=0;i<lock->max_threads;i++)
-    sem_destroy(&lock->array[i]);
+    sem_destroy(&lock->array);
 }
 
