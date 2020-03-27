@@ -34,7 +34,7 @@ void wait(custom_lock* lock) {
     //printf("%d\n",lock->current);
     //sem_wait(&lock->array[lock->current++]);
     int j=lock->current++;
-    //printf("%d wait func\n",j);
+    printf("%d wait func\n",j);
     sem_wait(&lock->array[j]);
 
 }
